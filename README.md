@@ -1,4 +1,5 @@
-plcl
+PLanet CLicker
 ====
 
-Planet Clciker
+A clicker time game, but this time in SPACE!
+
