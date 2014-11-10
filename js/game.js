@@ -776,7 +776,7 @@ function updateTrader()
 			tradeButton += "<img src=\"img/trade.png\" height=\"50\" width=\"50\" />";
 			tradeButton += trader[3].toString() + "&nbsp;&nbsp;<img src=\"img/" + resourceNames[trader[4]].toLowerCase() + "tiny.png\" height=\"50\" width=\"50\" />";
 
-			$("#traderbutton").append(tradeButton);
+			$("#traderbutton").append(tradeButton).attr('title', 'Trade with passing merchant ship');
 		}
 		else
 		{

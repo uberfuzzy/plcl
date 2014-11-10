@@ -55,6 +55,13 @@ height:100%;
 #container {
 	height:100%;
 }
+#traderbutton {
+	min-height: 56px;
+	margin-bottom: 8px;
+}
+#traderbutton button {
+	border-radius: 1em;
+}
 
 /* Font stack stuff for UI fun */
 
