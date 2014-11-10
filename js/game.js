@@ -339,25 +339,18 @@ function initializeStatPanel()
 	// Update the resources first
 	$("#statpanel").append("<p class=\"center\">Resources:</p>");
 	
-	$("#statpanel").append("<fieldset><legend title=\"Stuff just lying around. Send robuts or simple machines to gather them.\">Raw</legend>")
-					.append( makeStatline(0) )
-					.append( makeStatline(1) )
-					.append( makeStatline(2) );
+	var statLineIndex = 0;
+	for( var resgroup=1; resgroup<=4; resgroup++ ) {
+		$("#statpanel").append("<fieldset><legend id=\"resGroup"+ resgroup +"\"></legend>")
+						.append( makeStatline(statLineIndex++) )
+						.append( makeStatline(statLineIndex++) )
+						.append( makeStatline(statLineIndex++) );
+	}
 
-	$("#statpanel").append("<fieldset><legend title=\"Little bit of this, dash of that. Cook these up in your lab.\">Refined</legend>")
-					.append( makeStatline(3) )
-					.append( makeStatline(4) )
-					.append( makeStatline(5) );
-
-	$("#statpanel").append("<fieldset><legend title=\"The good stuff. You might get lucky, or maybe you need specialized equipment.\">Rare</legend>")
-					.append( makeStatline(6) )
-					.append( makeStatline(7) )
-					.append( makeStatline(8) );
-
-	$("#statpanel").append("<fieldset><legend title=\"ERROR: Data file classified\">Exotic</legend>")
-					.append( makeStatline(9) )
-					.append( makeStatline(10) )
-					.append( makeStatline(11) );
+	$("#resGroup1").text("Raw")      .tooltip( {placement:"bottom", title:"Stuff just lying around. Send robuts or simple machines to gather them."} );
+	$("#resGroup2").text("Synthetic").tooltip( {placement:"bottom", title:"Little bit of this, dash of that. Cook these up in your physics lab."} );
+	$("#resGroup3").text("Refined")  .tooltip( {placement:"bottom", title:"The good stuff.With small improvements your machines might get lucky. With specialized equipment you might be able to extract these directly. Find a chemist for distillation methods."} );
+	$("#resGroup4").text("Exotic")   .tooltip( {placement:"bottom", title:"ERROR: Data corrupted. Source: Classified"} );
 
 	$("#statpanel").append("<hr>");
 

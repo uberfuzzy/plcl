@@ -28,11 +28,15 @@ height:100%;
 	text-align: right;
 	    margin:0;
 }
-#statpanel legend {
+#statpanel fieldset legend {
 	margin-bottom: 0;
 	background-color: rgba(0,0,0,0.1);
 	text-align: center;
 	font-size: 80%;
+	cursor: help;
+}
+#statpanel fieldset .tooltip-inner {
+	text-shadow: none;
 }
 #clickpanel {
 	height:100%;
