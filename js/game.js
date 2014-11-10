@@ -338,12 +338,27 @@ function initializeStatPanel()
 	
 	// Update the resources first
 	$("#statpanel").append("<p class=\"center\">Resources:</p>");
-	for (var i = 0; i < MAXRESOURCES; i++)
-	{
-		var statline = "<p class=\"" + resourceNames[i].toLowerCase() + "\"><img src=\"img/" + resourceNames[i].toLowerCase() + "tiny.png\" >" + resourceNames[i] + ": ";
-		statline += "<span id=\"res" + i.toString() + "\">"+ Math.floor(resources[i]) + "</span></p>"
-		$("#statpanel").append(statline);
-	}
+	
+	$("#statpanel").append("<fieldset><legend>Raw</legend>")
+					.append( makeStatline(0) )
+					.append( makeStatline(1) )
+					.append( makeStatline(2) );
+
+	$("#statpanel").append("<fieldset><legend>Refined</legend>")
+					.append( makeStatline(3) )
+					.append( makeStatline(4) )
+					.append( makeStatline(5) );
+
+	$("#statpanel").append("<fieldset><legend>Rare</legend>")
+					.append( makeStatline(6) )
+					.append( makeStatline(7) )
+					.append( makeStatline(8) );
+
+	$("#statpanel").append("<fieldset><legend>Exotic</legend>")
+					.append( makeStatline(9) )
+					.append( makeStatline(10) )
+					.append( makeStatline(11) );
+
 	$("#statpanel").append("<hr>");
 
 	// Then the buildings we own...
@@ -365,6 +380,12 @@ function initializeStatPanel()
 	$("#statpanel").append("<p>Total Clicks: <span id=\"clicks3\">" + mClicks[3] + "</span></p>");
 }
 
+function makeStatline(i) {
+	var rNameLower = resourceNames[i].toLowerCase();
+	var statline = "<p class=\"" + rNameLower + "\"><img src=\"img/" + rNameLower + "tiny.png\" >" + resourceNames[i] + ": ";
+	statline += "<span id=\"res" + i.toString() + "\">"+ Math.floor(resources[i]) + "</span></p>";
+	return statline;
+}
 
 function updateResources()
 {
