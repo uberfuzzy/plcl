@@ -1138,4 +1138,11 @@ function pad(mVal)
 	return pad.substring(0, pad.length - mVal.length) + mVal;
 }
 
-updateCanBuy(); fixMainMenu(); updateUI(); updatelog(); updatePrices(); makeUpgradeButtons(); makeBuildingButtons(); initializeStatPanel();
+updateCanBuy();
+fixMainMenu();
+updateUI();
+updatelog();
+updatePrices();
+makeUpgradeButtons();
+makeBuildingButtons();
+initializeStatPanel();
