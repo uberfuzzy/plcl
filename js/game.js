@@ -1139,7 +1139,8 @@ function pad(mVal)
 }
 
 updateCanBuy();
-fixMainMenu();
+// fixMainMenu();
+resetMainMenu();
 updateUI();
 updatelog();
 updatePrices();
