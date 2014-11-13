@@ -349,7 +349,7 @@ function initializeStatPanel()
 
 	$("#resGroup1").text("Raw")      .tooltip( {placement:"bottom", title:"Stuff just lying around. Send robuts or simple machines to gather them."} );
 	$("#resGroup2").text("Synthetic").tooltip( {placement:"bottom", title:"Little bit of this, dash of that. Cook these up in your physics lab."} );
-	$("#resGroup3").text("Refined")  .tooltip( {placement:"bottom", title:"The good stuff.With small improvements your machines might get lucky. With specialized equipment you might be able to extract these directly. Find a chemist for distillation methods."} );
+	$("#resGroup3").text("Refined")  .tooltip( {placement:"bottom", title:"The good stuff. With small improvements your machines might get lucky. With specialized equipment you might be able to extract these directly. Find a chemist for bulk distillation methods."} );
 	$("#resGroup4").text("Exotic")   .tooltip( {placement:"bottom", title:"ERROR: Data corrupted. Source: Classified"} );
 
 	$("#statpanel").append("<hr>");
