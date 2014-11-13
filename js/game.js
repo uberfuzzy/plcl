@@ -340,11 +340,15 @@ function initializeStatPanel()
 	$("#statpanel").append("<p class=\"center\">Resources:</p>");
 	
 	var statLineIndex = 0;
+	var fs = null;
 	for( var resgroup=1; resgroup<=4; resgroup++ ) {
-		$("#statpanel").append("<fieldset><legend id=\"resGroup"+ resgroup +"\"></legend>")
-						.append( makeStatline(statLineIndex++) )
-						.append( makeStatline(statLineIndex++) )
-						.append( makeStatline(statLineIndex++) );
+		fs = $("<fieldset>")
+				.append("<legend id=\"resGroup"+ resgroup +"\"></legend>")
+				.append( makeStatline(statLineIndex++) )
+				.append( makeStatline(statLineIndex++) )
+				.append( makeStatline(statLineIndex++) );
+		$("#statpanel").append( fs );
+		fs = null;
 	}
 
 	$("#resGroup1").text("Raw")      .tooltip( {placement:"bottom", title:"Stuff just lying around. Send robuts or simple machines to gather them."} );
