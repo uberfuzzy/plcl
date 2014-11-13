@@ -337,7 +337,7 @@ function initializeStatPanel()
 	$("#statpanel").empty();
 	
 	// Update the resources first
-	$("#statpanel").append("<p class=\"center\">Resources:</p>");
+	$("#statpanel").append("<p class=\"center\">Resources:</p><div id=\"res\"></div>");
 	
 	var statLineIndex = 0;
 	var fs = null;
@@ -347,7 +347,7 @@ function initializeStatPanel()
 				.append( makeStatline(statLineIndex++) )
 				.append( makeStatline(statLineIndex++) )
 				.append( makeStatline(statLineIndex++) );
-		$("#statpanel").append( fs );
+		$("#statpanel #res").append( fs );
 		fs = null;
 	}
 
