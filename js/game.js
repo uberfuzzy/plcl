@@ -1,5 +1,6 @@
 // For Save Fuckery, and general whatnot.
 var VERSION = 0.4;
+var cdnBase = 'http://assets.hurgle.com/plcl/';
 
 // Initializers
 var resources = [0, 0, 0,    // Stone, Gloop, Fumes
@@ -272,7 +273,7 @@ function makeBuildingButtons()
 		var mButton = "<div onmouseover=\"showBuildingText(" + iStr + ")\" class=\"fs center well\">";
 		mButton += buildingNames[i] + "<br />";
 		mButton += "<div class=\"fs btn shalf\" style=\"float: left;\">";
-		mButton += "<img src=\"img/" + buildingNames[i].toLowerCase() + ".png\" height=\"100\" width=\"100\" /><br />";
+		mButton += "<img src=\""+ cdnBase +"img/" + buildingNames[i].toLowerCase() + ".png\" height=\"100\" width=\"100\" /><br />";
 		mButton += "</div>";
 		mButton += "<div class=\"fs btn shalf\" style=\"float: right;\">";
 		for (var j = 0; j < MAXRESOURCES; j++)
@@ -280,7 +281,7 @@ function makeBuildingButtons()
 			if (buildingPrices[i][j] > 0)
 			{
 				var rName = resourceNames[j].toLowerCase();
-				mButton += "&nbsp;<img src=\"img/" + rName + "tiny.png\" ><span class=\"" + rName + "\">" + buildingPrices[i][j] + "&nbsp;</span><br />";
+				mButton += "&nbsp;<img src=\""+ cdnBase +"img/" + rName + "tiny.png\" ><span class=\"" + rName + "\">" + buildingPrices[i][j] + "&nbsp;</span><br />";
 			}
 		}
 		mButton += "</div>";
@@ -309,7 +310,7 @@ function makeUpgradeButtons()
 		
 		var iStr = i.toString();
 		var mButton = "<button onclick=\"buyUpgrade(" + iStr + ")\" onmouseover=\"showUpgradeText(" + iStr + ")\" class=\"fb wide\">"
-		mButton += "<img src=\"img/" + upgradeNames[i].toLowerCase() + ".png\" height=\"50\" width=\"50\" />&nbsp;&nbsp;";
+		mButton += "<img src=\""+ cdnBase +"img/" + upgradeNames[i].toLowerCase() + ".png\" height=\"50\" width=\"50\" />&nbsp;&nbsp;";
 		mButton += upgradeNames[i] + "&nbsp;&nbsp;|&nbsp;&nbsp;";
 
 		for (var j = 0; j < MAXRESOURCES; j++)
@@ -317,7 +318,7 @@ function makeUpgradeButtons()
 			if (upgradePrices[i][j] > 0)
 			{
 				var rName = resourceNames[j].toLowerCase();
-				mButton += "&nbsp;<img src=\"img/" + rName + "tiny.png\" ><span class=\"" + rName + "\">" + upgradePrices[i][j] + "&nbsp;</span>&nbsp;";
+				mButton += "&nbsp;<img src=\""+ cdnBase +"img/" + rName + "tiny.png\" ><span class=\"" + rName + "\">" + upgradePrices[i][j] + "&nbsp;</span>&nbsp;";
 			}
 		}
 		mButton += "</button>";
@@ -379,7 +380,7 @@ function initializeStatPanel()
 
 function makeStatline(i) {
 	var rNameLower = resourceNames[i].toLowerCase();
-	var statline = "<p class=\"" + rNameLower + "\"><img src=\"img/" + rNameLower + "tiny.png\" >" + resourceNames[i] + ": ";
+	var statline = "<p class=\"" + rNameLower + "\"><img src=\""+ cdnBase +"img/" + rNameLower + "tiny.png\" >" + resourceNames[i] + ": ";
 	statline += "<span id=\"res" + i.toString() + "\">"+ Math.floor(resources[i]) + "</span></p>";
 	return statline;
 }
@@ -609,12 +610,12 @@ function fixMainMenu()
 function resetMainMenu()
 {
 	$("#mainmenu").empty();
-	$("#mainmenu").append("<li><a onclick=\"clickStone()\"><img src=\"img/stone.png\" height=\"100\" width=\"100\" /></a><span>Stone</span></li>");
-	if (upgrades[10] > 0) {$("#mainmenu").append("<li><a onclick=\"clickOre()\"><img src=\"img/ore.png\" height=\"100\" width=\"100\" /></a><span>Ore</span></li>");}
-	$("#mainmenu").append("<li><a onclick=\"clickGloop()\"><img src=\"img/gloop.png\" height=\"100\" width=\"100\" /></a><span>Gloop</span></li>");
-	if (upgrades[11] > 0) {$("#mainmenu").append("<li><a onclick=\"clickOil()\"><img src=\"img/oil.png\" height=\"100\" width=\"100\" /></a><span>Oil</span></li>");}
-	$("#mainmenu").append("<li><a onclick=\"clickFumes()\"><img src=\"img/fumes.png\" height=\"100\" width=\"100\" /></a><span>Fumes</span></li>");
-	if (upgrades[12] > 0) {$("#mainmenu").append("<li><a onclick=\"clickGas()\"><img src=\"img/gas.png\" height=\"100\" width=\"100\" /></a><span>Gas</span></li>");}
+	$("#mainmenu").append("<li><a onclick=\"clickStone()\"><img src=\""+ cdnBase +"img/stone.png\" height=\"100\" width=\"100\" /></a><span>Stone</span></li>");
+	if (upgrades[10] > 0) {$("#mainmenu").append("<li><a onclick=\"clickOre()\"><img src=\""+ cdnBase +"img/ore.png\" height=\"100\" width=\"100\" /></a><span>Ore</span></li>");}
+	$("#mainmenu").append("<li><a onclick=\"clickGloop()\"><img src=\""+ cdnBase +"img/gloop.png\" height=\"100\" width=\"100\" /></a><span>Gloop</span></li>");
+	if (upgrades[11] > 0) {$("#mainmenu").append("<li><a onclick=\"clickOil()\"><img src=\""+ cdnBase +"img/oil.png\" height=\"100\" width=\"100\" /></a><span>Oil</span></li>");}
+	$("#mainmenu").append("<li><a onclick=\"clickFumes()\"><img src=\""+ cdnBase +"img/fumes.png\" height=\"100\" width=\"100\" /></a><span>Fumes</span></li>");
+	if (upgrades[12] > 0) {$("#mainmenu").append("<li><a onclick=\"clickGas()\"><img src=\""+ cdnBase +"img/gas.png\" height=\"100\" width=\"100\" /></a><span>Gas</span></li>");}
 	doMenu();
 	fixMainMenu();
 }
@@ -769,9 +770,9 @@ function updateTrader()
 			
 			// Should initialize the button here...
 			var tradeButton = "<button onclick=\"doTrade()\" class=\"fb wide\">";
-			tradeButton += "<img src=\"img/" + resourceNames[trader[2]].toLowerCase() + "tiny.png\" height=\"50\" width=\"50\" />&nbsp;&nbsp;" + trader[1].toString() + "&nbsp;&nbsp;";
-			tradeButton += "<img src=\"img/trade.png\" height=\"50\" width=\"50\" />";
-			tradeButton += trader[3].toString() + "&nbsp;&nbsp;<img src=\"img/" + resourceNames[trader[4]].toLowerCase() + "tiny.png\" height=\"50\" width=\"50\" />";
+			tradeButton += "<img src=\""+ cdnBase +"img/" + resourceNames[trader[2]].toLowerCase() + "tiny.png\" height=\"50\" width=\"50\" />&nbsp;&nbsp;" + trader[1].toString() + "&nbsp;&nbsp;";
+			tradeButton += "<img src=\""+ cdnBase +"img/trade.png\" height=\"50\" width=\"50\" />";
+			tradeButton += trader[3].toString() + "&nbsp;&nbsp;<img src=\""+ cdnBase +"img/" + resourceNames[trader[4]].toLowerCase() + "tiny.png\" height=\"50\" width=\"50\" />";
 
 			$("#traderbutton").append(tradeButton).attr('title', 'Trade with passing merchant ship');
 		}
@@ -893,7 +894,7 @@ function updateNotifications()
 			
 			if (notifications[i][0]) 							// Show this one?
 			{
-				var mAlert = "<img src=\"img/" + notTypes[i] + "warning.png\" id=\"" + notTypes[i] + "alert\" />";
+				var mAlert = "<img src=\""+ cdnBase +"img/" + notTypes[i] + "warning.png\" id=\"" + notTypes[i] + "alert\" />";
 				$("#alerts").append(mAlert);
 				$("#" + notTypes[i] + "alert").tooltip( { title: notDesc[i] } );
 			}
