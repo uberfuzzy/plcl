@@ -512,11 +512,13 @@ function buyUpgrade(whatToBuy)
 {
 	if (resources[0] >= upgradePrices[whatToBuy][0] && resources[1] >= upgradePrices[whatToBuy][1] && resources[2] >= upgradePrices[whatToBuy][2] && 
 		resources[3] >= upgradePrices[whatToBuy][3] && resources[4] >= upgradePrices[whatToBuy][4] && resources[5] >= upgradePrices[whatToBuy][5] && 
-		resources[6] >= upgradePrices[whatToBuy][6] && resources[7] >= upgradePrices[whatToBuy][7] && resources[8] >= upgradePrices[whatToBuy][8])
+		resources[6] >= upgradePrices[whatToBuy][6] && resources[7] >= upgradePrices[whatToBuy][7] && resources[8] >= upgradePrices[whatToBuy][8] && 
+		resources[9] >= upgradePrices[whatToBuy][9] && resources[10] >= upgradePrices[whatToBuy][10] && resources[11] >= upgradePrices[whatToBuy][11])
 	{
 		resources[0] -= upgradePrices[whatToBuy][0]; resources[1] -= upgradePrices[whatToBuy][1]; resources[2] -= upgradePrices[whatToBuy][2];
 		resources[3] -= upgradePrices[whatToBuy][3]; resources[4] -= upgradePrices[whatToBuy][4]; resources[5] -= upgradePrices[whatToBuy][5];
 		resources[6] -= upgradePrices[whatToBuy][6]; resources[7] -= upgradePrices[whatToBuy][7]; resources[8] -= upgradePrices[whatToBuy][8];
+		resources[9] -= upgradePrices[whatToBuy][9]; resources[10] -= upgradePrices[whatToBuy][10]; resources[11] -= upgradePrices[whatToBuy][11];
 		
 		upgrades[whatToBuy]++;
 		mClicks[2]++;
