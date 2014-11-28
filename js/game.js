@@ -82,19 +82,19 @@ var buildingPrices = [
 					];
 					
 var buildingBasePrices = [ 
-							[  1,   1,   1,   0,   0,   0,   0,   0,   0,   0,   0,   0], // Robut: Random every 10 ticks
-							[  1,  10,  10,   0,   0,   0,   0,   0,   0,   0,   0,   0], // Miner: Stone every tick
-							[ 10,   1,  10,   0,   0,   0,   0,   0,   0,   0,   0,   0], // Pumper: Gloop every tick
-							[ 10,  10,   1,   0,   0,   0,   0,   0,   0,   0,   0,   0], // Fracker: Fumes every tick
-							[ 25,  25,  10,   0,   0,   0,   0,   0,   0,   0,   0,   0], // Grinder: Gloop + Stone = Paste
-							[ 25,  25,  10,   0,   0,   0,   0,   0,   0,   0,   0,   0], // Compressor: Fumes + Stone = Foam
-							[ 25,  25,  10,   0,   0,   0,   0,   0,   0,   0,   0,   0], // Bubbler: Fumes + Gloop = Gel
-							[  0, 100, 100,   0,   0,   0,  10,   0,   0,   0,   0,   0], // Crystallizer: Stone -> Ore
-							[100,   0, 100,   0,   0,   0,   0,  10,   0,   0,   0,   0], // Distiller: Gloop -> Oil
-							[100, 100,   0,   0,   0,   0,   0,   0,  10,   0,   0,   0], // Vaporizer: Fumes -> Gas
-							[  0,   0,   0, 100, 100, 100,   0,   0,   0,   0,   0,   0], // Tachynet: Tachyons
-							[  0,   0,   0,   0,   0,   0,  10,  10,  10,   0,   0,   0], // Equalizer: Averages resources
-						 ];			 
+						[  1,   1,   1,   0,   0,   0,   0,   0,   0,   0,   0,   0], // Robut: Random every 10 ticks
+						[  1,  10,  10,   0,   0,   0,   0,   0,   0,   0,   0,   0], // Miner: Stone every tick
+						[ 10,   1,  10,   0,   0,   0,   0,   0,   0,   0,   0,   0], // Pumper: Gloop every tick
+						[ 10,  10,   1,   0,   0,   0,   0,   0,   0,   0,   0,   0], // Fracker: Fumes every tick
+						[ 25,  25,  10,   0,   0,   0,   0,   0,   0,   0,   0,   0], // Grinder: Gloop + Stone = Paste
+						[ 25,  25,  10,   0,   0,   0,   0,   0,   0,   0,   0,   0], // Compressor: Fumes + Stone = Foam
+						[ 25,  25,  10,   0,   0,   0,   0,   0,   0,   0,   0,   0], // Bubbler: Fumes + Gloop = Gel
+						[  0, 100, 100,   0,   0,   0,  10,   0,   0,   0,   0,   0], // Crystallizer: Stone -> Ore
+						[100,   0, 100,   0,   0,   0,   0,  10,   0,   0,   0,   0], // Distiller: Gloop -> Oil
+						[100, 100,   0,   0,   0,   0,   0,   0,  10,   0,   0,   0], // Vaporizer: Fumes -> Gas
+						[  0,   0,   0, 100, 100, 100,   0,   0,   0,   0,   0,   0], // Tachynet: Tachyons
+						[  0,   0,   0,   0,   0,   0,  10,  10,  10,   0,   0,   0], // Equalizer: Averages resources
+					 ];			 
 			 
 var buildingNames = [
 						"Robut",
