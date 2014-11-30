@@ -657,6 +657,7 @@ function resetMainMenu()
 
 function HandleBot(whichBots, howMany)
 {
+	var i;
 	switch(whichBots)
 	{
 		case 0: // Robuts: Give random
