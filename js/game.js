@@ -736,7 +736,9 @@ function HandleBot(whichBots, howMany)
 			}
 			break;	
 		case 11: // Equalizer: Averages resources. Does not include the three silver-tiers.
-			var avg = (resources[0] + resources[1] + resources[2] + resources[3] + resources[4] + resources[5] + resources[6] + resources[7] + resources[8]) / 9;
+			var avg = ( resources[0] + resources[1] + resources[2] +
+						resources[3] + resources[4] + resources[5] +
+						resources[6] + resources[7] + resources[8]) / 9;
 			for (i = 0; i < 9; i++)
 			{
 				if (resources[i] < avg) { resources[i]++; } else { resources[i]--; }
