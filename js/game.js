@@ -522,7 +522,8 @@ function handleCanBuyConditions()
 	if (upgrades[11] == 1) { canhasupgrades[11] = false; } // Filterpump
 	if (upgrades[12] == 1) { canhasupgrades[12] = false; } // Fumigator
 	if (upgrades[10] == 1 && upgrades[11] == 1 && upgrades[12] == 1) { canhasupgrades[13] = true; } // allow nuclab?
-	if (upgrades[13] == 1) { canhasbuildings[12] = true; canhasupgrades[13] = false; }
+	if (upgrades[13] == 1) { canhasbuildings[11] = true; canhasupgrades[13] = false; }
+}
 
 function affordUpgrade(whatToBuy)
 {
