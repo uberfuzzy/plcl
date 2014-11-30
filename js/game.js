@@ -739,9 +739,13 @@ function HandleBot(whichBots, howMany)
 			var avg = ( resources[0] + resources[1] + resources[2] +
 						resources[3] + resources[4] + resources[5] +
 						resources[6] + resources[7] + resources[8]) / 9;
+						avg = Math.floor( avg );
 			for (i = 0; i < 9; i++)
 			{
-				if (resources[i] < avg) { resources[i]++; } else { resources[i]--; }
+				if (resources[i] != avg) {
+					if (resources[i] < avg) { resources[i]++; } 
+					else { resources[i]--; }
+				}
 			}
 			break;
 	}
