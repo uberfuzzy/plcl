@@ -1,5 +1,8 @@
 RewriteEngine on
 
+RewriteRule (css/bootstrap.css)$ http://assets.hurgle.com/plcl/css/bootstrap.min.css [L,R=301,NC]
+RewriteRule (js/bootstrap.js)$ http://assets.hurgle.com/plcl/js/bootstrap.min.js [L,R=301,NC]
+
 RewriteRule (css/.*\.css)$ http://assets.hurgle.com/plcl/$1 [L,R=301,NC]
 RewriteRule (img/.*\.png)$ http://assets.hurgle.com/plcl/$1 [L,R=301,NC]
 RewriteRule (js/.*\.js)$ http://assets.hurgle.com/plcl/$1 [L,R=301,NC]
