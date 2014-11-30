@@ -108,6 +108,7 @@ var buildingNames = [
 						"Distiller",
 						"Vaporizer",
 						"Tachynet",
+						"Equalizer",
 					];
 					
 var buildingDesc = 	[
@@ -122,6 +123,7 @@ var buildingDesc = 	[
 						"Distiller<br /><br />Convert 10 Gloop to 1 Oil every tick.",
 						"Vaporizer<br /><br />Convert 10 Fumes to 1 Gas every tick.",
 						"Tachynet<br /><br />Consumes 1 random resource every tick. Chance to collect tachyons.",
+						"Equalizer<br /><br />Averages resources.",
 					];
 
 			 
