@@ -432,16 +432,33 @@ function updateStats()
 	updateClicks();
 }
 
+function affordThing(whatToBuy)
+{
+	for( var thingIndex = 0; thingIndex < MAXBUILDINGS; thingIndex++ )
+	{
+		if( resources[thingIndex] < buildingPrices[whatToBuy][thingIndex] )
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+function spendBuilding(whatToBuy)
+{
+	for( var thingIndex = 0; thingIndex < MAXBUILDINGS; thingIndex++ )
+	{
+		resources[thingIndex] -= buildingPrices[whatToBuy][thingIndex];
+	}
+	return true;
+}
+
 function buyThing(whatToBuy)
 {
 	var didBuy = false;
-	if (resources[0] >= buildingPrices[whatToBuy][0] && resources[1] >= buildingPrices[whatToBuy][1] && resources[2] >= buildingPrices[whatToBuy][2] &&
-		resources[3] >= buildingPrices[whatToBuy][3] && resources[4] >= buildingPrices[whatToBuy][4] && resources[5] >= buildingPrices[whatToBuy][5] &&
-		resources[6] >= buildingPrices[whatToBuy][6] && resources[7] >= buildingPrices[whatToBuy][7] && resources[8] >= buildingPrices[whatToBuy][8] )
+	if ( affordThing(whatToBuy) )
 	{
-		resources[0] -= buildingPrices[whatToBuy][0]; resources[1] -= buildingPrices[whatToBuy][1]; resources[2] -= buildingPrices[whatToBuy][2];
-		resources[3] -= buildingPrices[whatToBuy][3]; resources[4] -= buildingPrices[whatToBuy][4]; resources[5] -= buildingPrices[whatToBuy][5];
-		resources[6] -= buildingPrices[whatToBuy][6]; resources[7] -= buildingPrices[whatToBuy][7]; resources[8] -= buildingPrices[whatToBuy][8];
+		spendBuilding(whatToBuy);
 		buildings[whatToBuy]++;
 		mClicks[1]++;
 		updatePrices();
@@ -506,20 +523,33 @@ function handleCanBuyConditions()
 	if (upgrades[12] == 1) { canhasupgrades[12] = false; } // Fumigator
 	if (upgrades[10] == 1 && upgrades[11] == 1 && upgrades[12] == 1) { canhasupgrades[13] = true; } // allow nuclab?
 	if (upgrades[13] == 1) { canhasbuildings[12] = true; canhasupgrades[13] = false; }
+
+function affordUpgrade(whatToBuy)
+{
+	for( var thingIndex = 0; thingIndex < MAXBUILDINGS; thingIndex++ )
+	{
+		if( resources[thingIndex] < upgradePrices[whatToBuy][thingIndex] )
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+function spendUpgrade(whatToBuy)
+{
+	for( var thingIndex = 0; thingIndex < MAXUPGRADES; thingIndex++ )
+	{
+		resources[thingIndex] -= upgradePrices[whatToBuy][thingIndex];
+	}
+	return true;
 }
 
 function buyUpgrade(whatToBuy)
 {
-	if (resources[0] >= upgradePrices[whatToBuy][0] && resources[1]  >= upgradePrices[whatToBuy][1]  && resources[2]  >= upgradePrices[whatToBuy][2] && 
-		resources[3] >= upgradePrices[whatToBuy][3] && resources[4]  >= upgradePrices[whatToBuy][4]  && resources[5]  >= upgradePrices[whatToBuy][5] && 
-		resources[6] >= upgradePrices[whatToBuy][6] && resources[7]  >= upgradePrices[whatToBuy][7]  && resources[8]  >= upgradePrices[whatToBuy][8] && 
-		resources[9] >= upgradePrices[whatToBuy][9] && resources[10] >= upgradePrices[whatToBuy][10] && resources[11] >= upgradePrices[whatToBuy][11])
+	if ( affordUpgrade(whatToBuy) )
 	{
-		resources[0] -= upgradePrices[whatToBuy][0]; resources[1]  -= upgradePrices[whatToBuy][1];  resources[2]  -= upgradePrices[whatToBuy][2];
-		resources[3] -= upgradePrices[whatToBuy][3]; resources[4]  -= upgradePrices[whatToBuy][4];  resources[5]  -= upgradePrices[whatToBuy][5];
-		resources[6] -= upgradePrices[whatToBuy][6]; resources[7]  -= upgradePrices[whatToBuy][7];  resources[8]  -= upgradePrices[whatToBuy][8];
-		resources[9] -= upgradePrices[whatToBuy][9]; resources[10] -= upgradePrices[whatToBuy][10]; resources[11] -= upgradePrices[whatToBuy][11];
-		
+		spendUpgrade(whatToBuy);
 		upgrades[whatToBuy]++;
 		mClicks[2]++;
 
