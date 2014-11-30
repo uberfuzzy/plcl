@@ -662,21 +662,21 @@ function HandleBot(whichBots, howMany)
 			for (i = 0; i < howMany; i++) 
 			{ 
 				giveRes(0, false); 
-				if (Math.random() * 100 < mClickMult[3]) { giveRes(6, true); writelog("Rare Resource Found!"); }
+				if (Math.random() * 100 < mClickMult[3]) { giveRes(6, true); writelog("Miner found Rare Resource!"); }
 			} 
 			break;
 		case 2: // Pumpers: Gloop
 			for (i = 0; i < howMany; i++) 
 			{ 
 				giveRes(1, false); 
-				if (Math.random() * 100 < mClickMult[4]) { giveRes(7, true); writelog("Rare Resource Found!"); }
+				if (Math.random() * 100 < mClickMult[4]) { giveRes(7, true); writelog("Pumper found Rare Resource!"); }
 			} 
 			break;
 		case 3: // Frackers: Fumes
 			for (i = 0; i < howMany; i++) 
 			{ 
 				giveRes(2, false); 
-				if (Math.random() * 100 < mClickMult[5]) { giveRes(8, true); writelog("Rare Resource Found!"); }
+				if (Math.random() * 100 < mClickMult[5]) { giveRes(8, true); writelog("Fracker found Rare Resource!"); }
 			} 
 			break;
 		case 4: // Grinder: Fumes + Stone = Foam
