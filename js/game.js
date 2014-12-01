@@ -811,9 +811,9 @@ function updateTrader()
 			
 			// Should initialize the button here...
 			var tradeButton = "<button onclick=\"doTrade()\" class=\"fb wide\">";
-			tradeButton += "<img src=\"img/" + resourceNames[trader[2]].toLowerCase() + "tiny.png\" height=\"50\" width=\"50\" />&nbsp;&nbsp;" + trader[1].toString() + "&nbsp;&nbsp;";
+			tradeButton += "<img src=\"img/" + resourceNames[trader[2]].toLowerCase() + ".png\" height=\"50\" width=\"50\" />&nbsp;&nbsp;" + trader[1].toString() + "&nbsp;&nbsp;";
 			tradeButton += "<img src=\"img/trade.png\" height=\"50\" width=\"50\" />";
-			tradeButton += trader[3].toString() + "&nbsp;&nbsp;<img src=\"img/" + resourceNames[trader[4]].toLowerCase() + "tiny.png\" height=\"50\" width=\"50\" />";
+			tradeButton += trader[3].toString() + "&nbsp;&nbsp;<img src=\"img/" + resourceNames[trader[4]].toLowerCase() + ".png\" height=\"50\" width=\"50\" />";
 
 			$("#traderbutton").append(tradeButton).attr('title', 'Trade with passing merchant ship');
 		}
