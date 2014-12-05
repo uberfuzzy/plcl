@@ -418,6 +418,7 @@ function updateUpgrades()
 
 function updateClicks()
 {
+	mClicks[3] = mClicks[0] + mClicks[1] + mClicks[2];
 	for (var i = 0; i < 4; i++)
 	{
 		var which = "#clicks" + i.toString();
