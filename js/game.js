@@ -644,12 +644,12 @@ function fixMainMenu()
 function resetMainMenu()
 {
 	$("#mainmenu").empty();
-	$("#mainmenu").append("<li><a onclick=\"clickStone()\"><img src=\"img/stone.png\" height=\"100\" width=\"100\" /></a><span>Stone</span></li>");
-	if (upgrades[10] > 0) {$("#mainmenu").append("<li><a onclick=\"clickOre()\"><img src=\"img/ore.png\" height=\"100\" width=\"100\" /></a><span>Ore</span></li>");}
-	$("#mainmenu").append("<li><a onclick=\"clickGloop()\"><img src=\"img/gloop.png\" height=\"100\" width=\"100\" /></a><span>Gloop</span></li>");
-	if (upgrades[11] > 0) {$("#mainmenu").append("<li><a onclick=\"clickOil()\"><img src=\"img/oil.png\" height=\"100\" width=\"100\" /></a><span>Oil</span></li>");}
-	$("#mainmenu").append("<li><a onclick=\"clickFumes()\"><img src=\"img/fumes.png\" height=\"100\" width=\"100\" /></a><span>Fumes</span></li>");
-	if (upgrades[12] > 0) {$("#mainmenu").append("<li><a onclick=\"clickGas()\"><img src=\"img/gas.png\" height=\"100\" width=\"100\" /></a><span>Gas</span></li>");}
+						   $("#mainmenu").append("<li><a onclick=\"clickStone()\"><img src=\"img/stone.png\" height=\"100\" width=\"100\" /></a><span>Stone</span></li>");
+	if (upgrades[10] > 0) {$("#mainmenu").append("<li><a onclick=\"clickOre()\"  ><img src=\"img/ore.png\"   height=\"100\" width=\"100\" /></a><span>Ore</span></li>");}
+						   $("#mainmenu").append("<li><a onclick=\"clickGloop()\"><img src=\"img/gloop.png\" height=\"100\" width=\"100\" /></a><span>Gloop</span></li>");
+	if (upgrades[11] > 0) {$("#mainmenu").append("<li><a onclick=\"clickOil()\"  ><img src=\"img/oil.png\"   height=\"100\" width=\"100\" /></a><span>Oil</span></li>");}
+						   $("#mainmenu").append("<li><a onclick=\"clickFumes()\"><img src=\"img/fumes.png\" height=\"100\" width=\"100\" /></a><span>Fumes</span></li>");
+	if (upgrades[12] > 0) {$("#mainmenu").append("<li><a onclick=\"clickGas()\"  ><img src=\"img/gas.png\"   height=\"100\" width=\"100\" /></a><span>Gas</span></li>");}
 	doMenu();
 	fixMainMenu();
 }
