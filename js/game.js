@@ -373,10 +373,11 @@ function initializeStatPanel()
 	// Then the general game stats
 	$("#statpanel").append("<p class=\"center\">Stats:</p>");
 
-	$("#statpanel").append("<p>Resource Clicks: <span id=\"clicks0\">" + mClicks[0] + "</span></p>");
-	$("#statpanel").append("<p>Purchase Clicks: <span id=\"clicks1\">" + mClicks[1] + "</span></p>");
-	$("#statpanel").append("<p>Upgrade Clicks: <span id=\"clicks2\">" + mClicks[2] + "</span></p>");
-	$("#statpanel").append("<p>Total Clicks: <span id=\"clicks3\">" + mClicks[3] + "</span></p>");
+	$("#statpanel").append("<p>Resource Clicks: <span id=\"clicks0\"></span></p>");
+	$("#statpanel").append("<p>Purchase Clicks: <span id=\"clicks1\"></span></p>");
+	$("#statpanel").append("<p>Upgrade Clicks: <span id=\"clicks2\"></span></p>");
+	$("#statpanel").append("<p>Total Clicks: <span id=\"clicks3\"></span></p>");
+	updateClicks()
 }
 
 function makeStatline(i) {
