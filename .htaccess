@@ -1,9 +1,13 @@
 RewriteEngine on
 
-RewriteRule (css/bootstrap.css)$ http://assets.hurgle.com/plcl/css/bootstrap.min.css [L,R=301,NC]
-RewriteRule (js/bootstrap.js)$ http://assets.hurgle.com/plcl/js/bootstrap.min.js [L,R=301,NC]
+# Special catches. min in prod, full in dev
+RewriteCond %{REQUEST_URI} /css/bootstrap.css$ [OR]
+RewriteCond %{REQUEST_URI} /js/bootstrap.js$
+RewriteRule (.+/bootstrap)\.(.+)$ http://assets.hurgle.com/plcl/$1.min.$2 [L,R=301,NC]
 
-RewriteRule (css/.*\.css)$ http://assets.hurgle.com/plcl/$1 [L,R=301,NC]
-RewriteRule (fonts/.*\.css)$ http://assets.hurgle.com/plcl/$1 [L,R=301,NC]
-RewriteRule (img/.*\.png)$ http://assets.hurgle.com/plcl/$1 [L,R=301,NC]
-RewriteRule (js/.*\.js)$ http://assets.hurgle.com/plcl/$1 [L,R=301,NC]
+# Redirect all sub assets through cdn
+RewriteCond %{REQUEST_URI} /css/.+\.css$ [OR]
+RewriteCond %{REQUEST_URI} /fonts/.+\..+$ [OR]
+RewriteCond %{REQUEST_URI} /img/.+\.png$ [OR]
+RewriteCond %{REQUEST_URI} /js/.+\.js$
+RewriteRule (.+/.+\..+)$ http://assets.hurgle.com/plcl/$1 [L,R=301,NC]
