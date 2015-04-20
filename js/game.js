@@ -16,22 +16,22 @@ var resources = [0, 0, 0,    // Stone, Gloop, Fumes
 				 0, 0, 0,    // Ore, Oil, Gas
 				 0, 0, 0,    // Paste, Foam, Gel
 				 0, 0, 0, ]; // Unobtanium, Tachyons, Antimatter
-				 
+
 var resourceNames = [	"Stone", 		"Gloop", 	"Fumes",
 						"Paste",		"Foam",		"Gel",
 						"Ore",			"Oil",		"Gas",
 						"Unobtanium",	"Tachyons",	"Antimatter" ];
-				 
+
 var buildings = [0, 0, 0, 0, 		// Robut, Miner, Pumper, Fracker
 				 0, 0, 0, 0,		// Grinder, Compressor, Bubbler, crystallizer
 				 0, 0, 0, 0,		// distiller, vaporizer, tachynet, equalizer
-				];				
+				];
 var upgrades = [0, 0, 0, 0, 	// CPU, 		magdrill, 		condenser, 		vacpump
 				0, 0, 0, 0,		// Detector, 	Hydrometer, 	Colorimeter, 	physlab
 				0, 0, 0, 0,		// chemlab, 	chronolab, 		instaminer, 	filterpump
 				0, 0, 			// fumigator,	nukelab
 				];
-				
+
 var MAXBUILDINGS = 12;
 var MAXUPGRADES = 14;
 var MAXRESOURCES = 12;
@@ -40,27 +40,27 @@ var notifications = [
 						[false, false],		// Tachyons
 						[false, false],		// Antimatter
 					];
-					
+
 var notTypes = 	[
 					"tachyon",
 					"antimatter",
 				];
-				
+
 var notDesc = 	[
 					"Excess tachyons causing unstable time distortion!",
 					"Antimatter reacting with other elements!",
 				];
-						
+
 
 var counters = [10, 4, 4, 4, 		// Robut, Miner, Pumper, Fracker
 				 1, 1, 1, 1, 		// Grinder, Compressor, Bubbler, crystallizer
 				 1,	1, 1, 1,		// Distiller, vaporizer, tachynet, equalizer
-				]; 
+				];
 var countmax = [10, 4, 4, 4,	    // Robut, Miner, Pumper, Fracker
 				 1, 1, 1, 1,		// Grinder, Compressor, Bubbler, crystallizer
 				 1,	1, 1, 1,		// Distiller, vaporizer, tachynet, equalizer
-				];	
-				
+				];
+
 var curTimeout = 500;
 var baseTimeout = 500;
 
@@ -68,14 +68,14 @@ var canhasbuildings = [	true, true, true, true,  		// Robut, Miner, Pumper, Frac
 						false, false, false, false,		// Compressor, Grinder, Bubbler, crystallizer
 						false, false, false, false,		// distiller, vaporizer, tachynet, equalizer
 						];
-						
+
 var canhasupgrades  = [	true, true, true, true, 		// CPU, magdrill, condenser, vacpump
 						true, true, true, true,			// Detector, Hydrometer, Colorimeter, physlab
 						false, false, false, false, 	// chemlab, chronolab, instaminer, filterpump
 						false, false,					// fumigator, nukelab
 						];
-						
-var buildingPrices = [ 
+
+var buildingPrices = [
 						[  1,   1,   1,   0,   0,   0,   0,   0,   0,   0,   0,   0], // Robut: Random every 10 ticks
 						[  1,  10,  10,   0,   0,   0,   0,   0,   0,   0,   0,   0], // Miner: Stone every tick
 						[ 10,   1,  10,   0,   0,   0,   0,   0,   0,   0,   0,   0], // Pumper: Gloop every tick
@@ -89,8 +89,8 @@ var buildingPrices = [
 						[  0,   0,   0, 100, 100, 100,   0,   0,   0,   0,   0,   0], // Tachynet: Tachyons
 						[  0,   0,   0,   0,   0,   0,  10,  10,  10,   0,   0,   0], // Equalizer: Averages resources
 					];
-					
-var buildingBasePrices = [ 
+
+var buildingBasePrices = [
 						[  1,   1,   1,   0,   0,   0,   0,   0,   0,   0,   0,   0], // Robut: Random every 10 ticks
 						[  1,  10,  10,   0,   0,   0,   0,   0,   0,   0,   0,   0], // Miner: Stone every tick
 						[ 10,   1,  10,   0,   0,   0,   0,   0,   0,   0,   0,   0], // Pumper: Gloop every tick
@@ -103,8 +103,8 @@ var buildingBasePrices = [
 						[100, 100,   0,   0,   0,   0,   0,   0,  10,   0,   0,   0], // Vaporizer: Fumes -> Gas
 						[  0,   0,   0, 100, 100, 100,   0,   0,   0,   0,   0,   0], // Tachynet: Tachyons
 						[  0,   0,   0,   0,   0,   0,  10,  10,  10,   0,   0,   0], // Equalizer: Averages resources
-					 ];			 
-			 
+					 ];
+
 var buildingNames = [
 						"Robut",
 						"Miner",
@@ -119,7 +119,7 @@ var buildingNames = [
 						"Tachynet",
 						"Equalizer",
 					];
-					
+
 var buildingDesc = 	[
 						"Robut<br /><br />Randomly adds one resource every %f seconds.",
 						"Miner<br /><br />Adds stone every %f seconds.",
@@ -135,7 +135,7 @@ var buildingDesc = 	[
 						"Equalizer<br /><br />Averages resources.",
 					];
 
-			 
+
 var upgradePrices = [
 						[  9,   9,   9,   0,   0,   0,   0,   0,   0,   0,   0,   0], // CPU: Faster Robuts. (Robuts+1) * (Robuts+1) * (totalRobutPrice) * (totalRobutPrice) * (CPU Count + 1)
 						[100,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0], // Magdrill: Faster miners
@@ -152,7 +152,7 @@ var upgradePrices = [
 						[  0,   0,   0,   0,   0,   0,   0,   0, 100,   0,   0,   0], // Fumigator
 						[  0,   0,   0,   0,   0,   0,   0,   0,   0,   1,   1,   1], // Nukelab
 					];
-					
+
 var upgradeNames =	[
 						"CPU",
 						"Magdrill",
@@ -169,7 +169,7 @@ var upgradeNames =	[
 						"Fumigator",
 						"Nukelab",
 					];
-					
+
 var upgradeDesc = 	[
 						"CPU<br /><br />Decrease the activation time of Robuts to %f seconds.",
 						"Magdrill<br /><br />Decrease the activation time of Miners to %f seconds.",
@@ -186,7 +186,7 @@ var upgradeDesc = 	[
 						"Fumigator<br /><br />Allows direct collection of Gas.",
 						"Nukelab<br /><br />Unlock dangerous experimental facilities.",
 					];
-					
+
 var loglist = [ "<br />", "<br />", "<br />", "<br />", "<br />" ]; // Five lines
 
 // Specific resource multipliers
@@ -194,13 +194,13 @@ var mClickMult = [	1, 1, 1,    // Stone, Gloop, Fumes
 					1, 1, 1,    // Ore, Oil, Gas
 					1, 1, 1,    // Paste, Foam, Gel
 					1, 1, 1, ]; // Unobtanium, Tachyons, Antimatter
-					
+
 var mAutoMult = [	1, 1, 1,    // Stone, Gloop, Fumes
 					0, 0, 0,    // Ore, Oil, Gas
 					0, 0, 0,    // Paste, Foam, Gel
 					0, 0, 0, ]; // Unobtanium, Tachyons, Antimatter
-					
-				 
+
+
 // Click counters
 var mClicks = [0, 0, 0, 0];
 
@@ -214,7 +214,7 @@ var traderchance = 1000;
 
 // Increment functions
 
-function clickStone() 
+function clickStone()
 {
 	mClicks[0]++;
 	giveRes(0, true);
@@ -222,7 +222,7 @@ function clickStone()
 	updateUI();
 }
 
-function clickGloop() 
+function clickGloop()
 {
 	mClicks[0]++;
 	giveRes(1, true);
@@ -230,7 +230,7 @@ function clickGloop()
 	updateUI();
 }
 
-function clickFumes() 
+function clickFumes()
 {
 	mClicks[0]++;
 	giveRes(2, true);
@@ -238,19 +238,19 @@ function clickFumes()
 	updateUI();
 }
 
-function clickOre() 
+function clickOre()
 {
 	mClicks[0]++;
 	giveRes(6, true);
 	updateUI();
 }
-function clickOil() 
+function clickOil()
 {
 	mClicks[0]++;
 	giveRes(7, true);
 	updateUI();
 }
-function clickGas() 
+function clickGas()
 {
 	mClicks[0]++;
 	giveRes(8, true);
@@ -261,13 +261,13 @@ function clickGas()
 function giveRes(which, isClick)
 {
 	var toGive = 1;
-	if (isClick) 
-	{ 
-		toGive *= mClickMult[which]; 
-	} 
-	else 
-	{ 
-		toGive *= mAutoMult[which]; 
+	if (isClick)
+	{
+		toGive *= mClickMult[which];
+	}
+	else
+	{
+		toGive *= mAutoMult[which];
 	}
 	resources[which] += toGive;
 }
@@ -275,11 +275,11 @@ function giveRes(which, isClick)
 function makeBuildingButtons()
 {
 	$("#buypanel").empty();
-	
+
 	for (var i = 0; i < MAXBUILDINGS; i++)
 	{
 		if (canhasbuildings[i] == false) continue;
-	
+
 		var iStr = i.toString();
 		var mButton = "<div onmouseover=\"showBuildingText(" + iStr + ")\" class=\"fs center well\">";
 		mButton += buildingNames[i] + "<br />";
@@ -297,7 +297,7 @@ function makeBuildingButtons()
 		}
 		mButton += "</div>";
 		mButton += "<br style=\"clear: both;\" />";
-		
+
 		//var mButton = "<button onclick=\"buyThing(" + iStr + ")\" onmouseover=\"showBuildingText(" + iStr + ")\" class=\"fs shalf\">";
 
 		mButton += "<a onclick=\"sellThing(" + iStr + ")\" style=\"float: left;\" class=\"fs squarter btn btn-danger\">SELL<br />ONE</a>";
@@ -314,11 +314,11 @@ function makeBuildingButtons()
 function makeUpgradeButtons()
 {
 	$("#upgradebuttons").empty();
-	
+
 	for (var i = 0; i < MAXUPGRADES; i++)
 	{
 		if (canhasupgrades[i] == false) continue;
-		
+
 		var iStr = i.toString();
 		var mButton = "<button onclick=\"buyUpgrade(" + iStr + ")\" onmouseover=\"showUpgradeText(" + iStr + ")\" class=\"fb wide\">"
 		mButton += "<img src=\"img/" + upgradeNames[i].toLowerCase() + ".png\" height=\"50\" width=\"50\" />&nbsp;&nbsp;";
@@ -347,10 +347,10 @@ function updateUI()
 function initializeStatPanel()
 {
 	$("#statpanel").empty();
-	
+
 	// Update the resources first
 	$("#statpanel").append("<p class=\"center\">Resources:</p><div id=\"res\"></div>");
-	
+
 	var statLineIndex = 0;
 	var fs = null;
 	for( var resgroup=1; resgroup<=4; resgroup++ ) {
@@ -372,9 +372,9 @@ function initializeStatPanel()
 
 	// Then the buildings we own...
 	$("#statpanel").append("<p class=\"center\">Buildings:</p><div id=\"bld\"></div>");
-	
+
 	$("#statpanel").append("<hr>");
-	
+
 	// Then the upgrades we have
 	$("#statpanel").append("<p class=\"center\">Upgrades:</p><div id=\"upg\"></div>");
 
@@ -497,7 +497,7 @@ function sellThing(whatToSell)
 		resources[6] += Math.floor(buildingPrices[whatToSell][6] / 2);
 		resources[7] += Math.floor(buildingPrices[whatToSell][7] / 2);
 		resources[8] += Math.floor(buildingPrices[whatToSell][8] / 2);
-		
+
 		buildings[whatToSell]--;
 		mClicks[1]++;
 		updatePrices();
@@ -590,7 +590,7 @@ function buyUpgrade(whatToBuy)
 			case 12: // fumigator
 				resetMainMenu(); fixMainMenu(); break;
 		}
-		
+
 		handleCanBuyConditions();
 		updatePrices();
 		writelog("Bought " + upgradeNames[whatToBuy]);
@@ -674,25 +674,25 @@ function HandleBot(whichBots, howMany)
 		case 0: // Robuts: Give random
 			giveRandom(howMany); break;
 		case 1: // Miners: Stone
-			for (i = 0; i < howMany; i++) 
-			{ 
-				giveRes(0, false); 
+			for (i = 0; i < howMany; i++)
+			{
+				giveRes(0, false);
 				if (Math.random() * 100 < mClickMult[3]) { giveRes(6, true); writelog("Miner found Rare Resource!"); }
-			} 
+			}
 			break;
 		case 2: // Pumpers: Gloop
-			for (i = 0; i < howMany; i++) 
-			{ 
-				giveRes(1, false); 
+			for (i = 0; i < howMany; i++)
+			{
+				giveRes(1, false);
 				if (Math.random() * 100 < mClickMult[4]) { giveRes(7, true); writelog("Pumper found Rare Resource!"); }
-			} 
+			}
 			break;
 		case 3: // Frackers: Fumes
-			for (i = 0; i < howMany; i++) 
-			{ 
-				giveRes(2, false); 
+			for (i = 0; i < howMany; i++)
+			{
+				giveRes(2, false);
 				if (Math.random() * 100 < mClickMult[5]) { giveRes(8, true); writelog("Fracker found Rare Resource!"); }
-			} 
+			}
 			break;
 		case 4: // Grinder: Fumes + Stone = Foam
 			for (i = 0; i < howMany; i++)
@@ -726,13 +726,13 @@ function HandleBot(whichBots, howMany)
 			{
 				if (resources[1] > 10) { resources[1] -= 10; resources[7]++; }
 			}
-			break;			
+			break;
 		case 9: // Vaporizer: Fumes -> Gas
 			for (i = 0; i < howMany; i++)
 			{
 				if (resources[2] > 10) { resources[2] -= 10; resources[8]++; }
 			}
-			break;			
+			break;
 		case 10: // Tachynet: Collect tachyons, consume resources
 			for (i = 0; i < howMany; i++)
 			{
@@ -746,7 +746,7 @@ function HandleBot(whichBots, howMany)
 					}
 				}
 			}
-			break;	
+			break;
 		case 11: // Equalizer: Averages resources. Does not include the three silver-tiers.
 			var avg = ( resources[0] + resources[1] + resources[2] +
 						resources[3] + resources[4] + resources[5] +
@@ -755,7 +755,7 @@ function HandleBot(whichBots, howMany)
 			for (i = 0; i < 9; i++)
 			{
 				if (resources[i] != avg) {
-					if (resources[i] < avg) { resources[i]++; } 
+					if (resources[i] < avg) { resources[i]++; }
 					else { resources[i]--; }
 				}
 			}
@@ -802,25 +802,25 @@ function updateTrader()
 			// initialize the trader!
 			// What I want is always going to be 8 or less.
 			var whatIWant = Math.floor(Math.random() * 9);
-			
+
 			// What I have is always going to be 3 or greater - and always at least one tier higher than what I want.
 			var whatIHave = Math.floor(Math.random() * 9) + 3;
 			while (Math.floor(whatIHave / 3) <= Math.floor(whatIWant / 3))
 			{
 				whatIHave = Math.floor(Math.random() * 9) + 3;
 			}
-			
+
 			// The order of magnitude difference is 10-20 ^ (difference in tiers)
 			var tierDiff = Math.floor(whatIHave / 3) - Math.floor(whatIWant / 3) + 1;
 			var oom = Math.pow(3 + (Math.random() * 10), tierDiff);
-			
+
 			trader[0] = 1;
 			trader[1] = Math.floor((Math.random() * 25) * oom);
 			trader[2] = whatIWant;
 			trader[3] = Math.floor(Math.random() * 25);
 			trader[4] = whatIHave;
 			trader[5] = Math.floor(Math.random() * 15) + 15;
-			
+
 			// Should initialize the button here...
 			var tradeButton = "<button onclick=\"doTrade()\" class=\"fb wide\">";
 			tradeButton += "<img src=\"img/" + resourceNames[trader[2]].toLowerCase() + ".png\" height=\"50\" width=\"50\" />&nbsp;&nbsp;" + trader[1].toString() + "&nbsp;&nbsp;";
@@ -841,7 +841,7 @@ function updateTrader()
 		{
 			trader = [0, 0, 0, 0, 0, 0, ];
 			traderchance = 1000;
-			
+
 			// Button goes away here
 			$("#traderbutton").empty();
 		}
@@ -854,7 +854,7 @@ function doTrade()
 	{
 		resources[trader[2]] -= trader[1];
 		resources[trader[4]] += trader[3];
-		
+
 		// Do log writing here?
 		updateResources();
 	}
@@ -891,7 +891,7 @@ function updateTachyons()
 		if (ratio > 1) { ratio = 1; }
 		var amountToChange = ((0.5 - Math.random()) * ratio) + 1;
 		curTimeout = Math.round(curTimeout * amountToChange);
-		
+
 		var isEmergency = false;
 		// Handle the emergency cases
 		if (curTimeout <= 100)
@@ -916,13 +916,13 @@ function updateTachyons()
 			if (resources[10] == 0)
 			{
 				notifications[0][0] = false;
-			} 
+			}
 			else
 			{
 				notifications[0][0] = true;
 			}
 		}
-		else 
+		else
 		{
 			notifications[0][0] = false;
 		}
@@ -937,14 +937,14 @@ function updateNotifications()
 {
 	for (var i = 0; i < notifications.length; i++)
 	{
-		if (notifications[i][0] == notifications[i][1]) 
+		if (notifications[i][0] == notifications[i][1])
 		{
 			continue; // No change
 		}
 		else
 		{
 			notifications[i][1] = notifications[i][0];			// Mark the change
-			
+
 			if (notifications[i][0]) 							// Show this one?
 			{
 				var mAlert = "<img src=\"img/" + notTypes[i] + "warning.png\" id=\"" + notTypes[i] + "alert\" />";
@@ -980,7 +980,7 @@ function updatelog()
 }
 
 // Loading and Saving routines from CC (more or less)
-function bake_cookie(name, value) 
+function bake_cookie(name, value)
 {
 	var exdate=new Date();
 	exdate.setDate(exdate.getDate() + 30);
@@ -988,7 +988,7 @@ function bake_cookie(name, value)
 	document.cookie = cookie;
 }
 
-function read_cookie(name) 
+function read_cookie(name)
 {
 	var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
 	result && (result = JSON.parse(result[1]));
@@ -999,7 +999,7 @@ function load(loadType)
 {
 	//define load variables
 	var loadVar = {};
-		
+
 	if (loadType == 'cookie')
 	{
 		//check for cookies
@@ -1013,7 +1013,7 @@ function load(loadType)
 			return false;
 		};
 	}
-	
+
 	if (loadType == 'localStorage'){
 		//check for local storage
 		try {
@@ -1029,7 +1029,7 @@ function load(loadType)
 			return false;
 		}
 	}
-	
+
 	if (loadType == 'import'){
 		//take the import string, decompress and parse it
 		var compressed = document.getElementById('impexpField').value;
@@ -1041,7 +1041,7 @@ function load(loadType)
 		//close import/export dialog
 		//impexp();
 	}
-	
+
 	if (loadVar.version == VERSION)
 	{
 		resources = loadVar.resources;
@@ -1074,7 +1074,7 @@ function load(loadType)
 			for (var i = 0; i < loadVar.upgradePrices.length; i++) { upgradePrices[i] = loadVar.upgradePrices[i]; }
 			for (var i = 0; i < loadVar.canhasbuildings.length; i++) { canhasbuildings[i] = loadVar.canhasbuildings[i]; }
 			for (var i = 0; i < loadVar.canhasupgrades.length; i++) { canhasupgrades[i] = loadVar.canhasupgrades[i]; }
-			
+
 			$('#whatsnewModal').modal('show');
 		}
 	}
@@ -1103,7 +1103,7 @@ function save(savetype){
 	}
 	//Create the cookies
 	bake_cookie('plcl',saveVar);
-	
+
 	console.log(JSON.stringify(saveVar).length);
 	//set localstorage
 	try {
