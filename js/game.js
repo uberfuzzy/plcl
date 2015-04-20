@@ -22,6 +22,13 @@ var resourceNames = [	"Stone", 		"Gloop", 	"Fumes",
 						"Ore",			"Oil",		"Gas",
 						"Unobtanium",	"Tachyons",	"Antimatter" ];
 
+var regGroupTooltips = {
+	1: "Stuff just lying around. Send robuts or simple machines to gather them.",
+	2: "Little bit of this, dash of that. Cook these up in your physics lab.",
+	3: "The good stuff. With small improvements your machines might get lucky. With specialized equipment you might be able to extract these directly. Find a chemist for bulk distillation methods.",
+	4: "ERROR: Data corrupted. Source: Classified"
+};
+
 var buildings = [0, 0, 0, 0, 		// Robut, Miner, Pumper, Fracker
 				 0, 0, 0, 0,		// Grinder, Compressor, Bubbler, crystallizer
 				 0, 0, 0, 0,		// distiller, vaporizer, tachynet, equalizer
@@ -363,10 +370,10 @@ function initializeStatPanel()
 		fs = null;
 	}
 
-	$("#resGroup1").text("Raw")      .tooltip( {placement:"bottom", title:"Stuff just lying around. Send robuts or simple machines to gather them."} );
-	$("#resGroup2").text("Synthetic").tooltip( {placement:"bottom", title:"Little bit of this, dash of that. Cook these up in your physics lab."} );
-	$("#resGroup3").text("Refined")  .tooltip( {placement:"bottom", title:"The good stuff. With small improvements your machines might get lucky. With specialized equipment you might be able to extract these directly. Find a chemist for bulk distillation methods."} );
-	$("#resGroup4").text("Exotic")   .tooltip( {placement:"bottom", title:"ERROR: Data corrupted. Source: Classified"} );
+	$("#resGroup1").text("Raw")      .tooltip( {placement:"bottom", title: regGroupTooltips[1]} );
+	$("#resGroup2").text("Synthetic").tooltip( {placement:"bottom", title: regGroupTooltips[2]} );
+	$("#resGroup3").text("Refined")  .tooltip( {placement:"bottom", title: regGroupTooltips[3]} );
+	$("#resGroup4").text("Exotic")   .tooltip( {placement:"bottom", title: regGroupTooltips[4]} );
 
 	$("#statpanel").append("<hr>");
 
