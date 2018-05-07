@@ -5,9 +5,7 @@ A clicker-over-time game, but this time in SPACE!
 
 ## Where to play
 
-This game lives at http://hurgle.com/plcl/ and should be considered the "production" URL from which to play.
-
-An advanced "live beta" copy exists here http://uberfuzzy.github.io/plcl/ using the Github Pages publishing system, and may contain features not yet published to "production".
+This game lives https://uberfuzzy.github.io/plcl/ using the Github Pages publishing system, as a "live beta", and may contain features not yet published to "production".
 
 **WARNING**: This may contain unstable features, and subject to change any any time, play at your own risk.
 
